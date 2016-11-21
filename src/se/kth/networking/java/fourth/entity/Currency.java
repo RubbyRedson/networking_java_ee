@@ -10,7 +10,8 @@ import java.io.Serializable;
 @Table(name = "currencies")
 @NamedQueries(
         {
-                @NamedQuery(name = "Currency.getAll", query = "SELECT c FROM Currency c")
+                @NamedQuery(name = "Currency.getAll", query = "SELECT c FROM Currency c"),
+                @NamedQuery(name = "Currency.getByCountryCode", query = "SELECT c FROM Currency c WHERE c.id = ?1")
         }
 )
 public class Currency implements Serializable {

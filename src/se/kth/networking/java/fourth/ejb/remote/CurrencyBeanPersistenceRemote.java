@@ -12,5 +12,5 @@ import java.util.List;
 public interface CurrencyBeanPersistenceRemote {
     public List<Currency> getAllCurrencies();
     public Currency getByCountryCode(String s);
-    public int convert(String from, String to, float amount);
+    public float convert(String from, String to, float amount);
 }
