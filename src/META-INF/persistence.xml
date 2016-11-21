@@ -1,17 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+<!--<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">-->
 
-    <persistence-unit name="NewPersistenceUnit">
-        <provider>org.hibernate.ejb.HibernatePersistence</provider>
-        <properties>
-            <property name="hibernate.connection.url" value="localhost:3306/networking_in_java_fourth"/>
-            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
-            <property name="hibernate.connection.username" value="root"/>
-            <property name="hibernate.connection.password" value="root"/>
-            <property name="hibernate.archive.autodetection" value="class"/>
-            <property name="hibernate.show_sql" value="true"/>
-            <property name="hibernate.format_sql" value="true"/>
-            <property name="hbm2ddl.auto" value="update"/>
-        </properties>
-    </persistence-unit>
+    <!--<persistence-unit name="NewPersistenceUnit">-->
+        <!--<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>-->
+        <!--<properties>-->
+            <!--<property name="hibernate.connection.url" value="localhost:3306/networking_in_java_fourth"/>-->
+            <!--<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>-->
+            <!--<property name="hibernate.connection.username" value="root"/>-->
+            <!--<property name="hibernate.connection.password" value="root"/>-->
+            <!--<property name="hibernate.archive.autodetection" value="class"/>-->
+            <!--<property name="hibernate.show_sql" value="true"/>-->
+            <!--<property name="hibernate.format_sql" value="true"/>-->
+            <!--<property name="hbm2ddl.auto" value="update"/>-->
+        <!--</properties>-->
+    <!--</persistence-unit>-->
+<!--</persistence>-->
+
+
+
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+   http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+<persistence-unit name="Cabbage" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+
+    <class>se.kth.networking.java.fourth.entity.Currency</class>
+
+    <properties>
+        <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/networking_in_java_fourth"/>
+        <property name="javax.persistence.jdbc.user" value="root"/>
+        <property name="javax.persistence.jdbc.password" value="root"/>
+        <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+        <property name="eclipselink.logging.level" value="FINE"/>
+        <property name="eclipselink.ddl-generation" value="create-tables"/>
+    </properties>
+
+</persistence-unit>
 </persistence>

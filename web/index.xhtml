@@ -6,6 +6,22 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
    <f:view>
-      <h:outputLabel value="Hello, world"/>
+      <h:outputLabel value="From: "/>
+      <h:selectOneMenu value="#{currencyBean.fromCurrency}" converter="#{currencyConverter}">
+         <f:selectItems value="#{currencyBean.currencies}" var="item" itemValue="#{item}" itemLabel="#{item.id} #{item.worth}" />
+      </h:selectOneMenu>
+      <br/>
+      <h:outputLabel value="To: "/>
+      <h:selectOneMenu value="#{currencyBean.toCurrency}" converter="#{currencyConverter}">
+         <f:selectItems value="#{currencyBean.currencies}" var="item" itemValue="#{item}" itemLabel="#{item.id} #{item.worth}" />
+      </h:selectOneMenu>
+      <h:form>
+         <h:outputLabel value="Amount: "/>
+         <h:inputText value="#{currencyBean.amount}" />
+         <h:commandButton value="Convert" action="#{currencyBean.convert}" />
+      </h:form>
+
+      <h:outputLabel value="Result: "/>
+      <h:outputLabel value="#{currencyBean.result}"/>
    </f:view>
 </html>

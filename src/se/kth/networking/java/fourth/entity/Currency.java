@@ -14,6 +14,10 @@ import java.io.Serializable;
         }
 )
 public class Currency implements Serializable {
+
+    public Currency() {
+    }
+
     @Id
     @Column(name = "country_code")
     private String id;
