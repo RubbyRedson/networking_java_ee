@@ -17,7 +17,8 @@ public class CurrencyBeanPersistenceLocal implements CurrencyBeanPersistenceRemo
 //    @PersistenceContext(unitName="Cabbage")
 //    EntityManager em;
 
-    public int convert(Currency from, Currency to, float amount) {
+    public int convert(String from, String to, float amount) {
+        System.out.println(from + " " + to + " " + amount);
         return 42;
     }
 

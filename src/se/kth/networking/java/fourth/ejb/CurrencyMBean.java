@@ -17,8 +17,8 @@ import java.util.List;
 public class CurrencyMBean {
     @EJB
     CurrencyBeanPersistenceRemote currencyBean;
-    Currency toCurrency;
-    Currency fromCurrency;
+    String toCurrency;
+    String fromCurrency;
     float amount;
     float result;
 
@@ -28,39 +28,27 @@ public class CurrencyMBean {
     public CurrencyMBean() {
     }
 
-//    public void setSelected(Currency selected) {
-//        if (currencies == null) setCurrencies(null);
-//        this.selected = selected;
-//    }
-
     public void setCurrencies(List<Currency> currencies) {
         this.currencies = currencyBean.getAllCurrencies();
     }
-
-//    public SelectItem getCurrency() {
-//        if (currencies == null) setCurrencies(null);
-//        return new SelectItem(currencies.get(0).getId());
-//    }
 
     public List<Currency> getCurrencies() {
         return currencyBean.getAllCurrencies();
     }
 
-    public Currency getFromCurrency() {
-        if (fromCurrency == null) return currencyBean.getAllCurrencies().get(0);
+    public String getFromCurrency() {
         return fromCurrency;
     }
 
-    public void setFromCurrency(Currency fromCurrency) {
+    public void setFromCurrency(String fromCurrency) {
         this.fromCurrency = fromCurrency;
     }
 
-    public Currency getToCurrency() {
-        if (fromCurrency == null) return currencyBean.getAllCurrencies().get(0);
+    public String getToCurrency() {
         return toCurrency;
     }
 
-    public void setToCurrency(Currency toCurrency) {
+    public void setToCurrency(String toCurrency) {
         this.toCurrency = toCurrency;
     }
 
