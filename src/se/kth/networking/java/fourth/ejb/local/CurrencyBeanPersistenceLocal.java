@@ -24,7 +24,10 @@ public class CurrencyBeanPersistenceLocal implements CurrencyBeanPersistenceRemo
 
         float fromW = Float.parseFloat(fromC.getWorth());
         float toW = Float.parseFloat(toC.getWorth());
-        return (fromW * amount) / toW;
+
+        float usd = amount / fromW;
+
+        return usd * toW;
     }
 
     public List<Currency> getAllCurrencies() {
